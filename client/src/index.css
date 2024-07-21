@@ -1,0 +1,28 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.content{
+  height: 80vh;
+}
+
+.navbar{
+  background-color:#0000008b !important ;
+}
+
+.register{
+  height: 90vh;
+}
+
+
+/* Transaction */
+.filters{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  box-shadow: 0 0 3px gray
+  ;
+}
