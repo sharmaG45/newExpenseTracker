@@ -4,11 +4,11 @@ const moment = require("moment");
 const getAllTransection = async (req, res) => {
     try {
         const { filter, selectedDate, type } = req.body;
-        const transection = await transectionModel.find({
+        const transactions = await transectionModel.find({
             ...(filter !== "custom"
                 ? {
                     date: {
-                        $gt: moment().subtract(Number(filter), "d").toDate(),
+                        $gt: moment().subtract(Number(filter), "days").toDate(),
                     },
                 }
                 : {
@@ -20,10 +20,10 @@ const getAllTransection = async (req, res) => {
             userid: req.body.userid,
             ...(type !== "all" && { type }),
         });
-        res.status(200).json(transection)
+        res.status(200).json(transactions);
     } catch (err) {
         console.log(err);
-        res.status(500).json(err)
+        res.status(500).json({ message: 'Error fetching transactions', error: err });
     }
 };
 
